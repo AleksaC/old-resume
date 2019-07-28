@@ -1,6 +1,6 @@
 # Resume
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/AleksaC/resume/blob/master/LICENSE)
-[![Build Status](https://travis-ci.com/AleksaC/resume.svg?token=qtmyYXBd1njDF3Xzy3pJ&branch=master)](https://travis-ci.com/AleksaC/resume)
+[![Build Status](https://travis-ci.com/AleksaC/resume.svg?branch=master)](https://travis-ci.com/AleksaC/resume)
 
 This repository contains the latest version of my resume. It's a single-page
 one-column resume made in LaTeX.

@@ -1,0 +1,208 @@
+\documentclass[paper=letter,fontsize=11pt]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{graphicx}
+\usepackage[svgnames]{xcolor}
+
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+]{hyperref}
+\usepackage{float}
+\usepackage{etaremune}
+\usepackage{wrapfig}
+\usepackage{fontawesome}
+
+\usepackage{attachfile}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+\setlength\topmargin{0pt}
+\addtolength\topmargin{-\headheight}
+\addtolength\topmargin{-\headsep}
+\setlength\oddsidemargin{0pt}
+\setlength\textwidth{\paperwidth}
+\addtolength\textwidth{-2in}
+\setlength\textheight{\paperheight}
+\addtolength\textheight{-2in}
+\usepackage{layout}
+
+%%% Custom sectioning}{sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{1pt}
+}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+		\par \normalsize \normalfont}
+		
+\newcommand{\MySlogan}[1]{ % Slogan}{optional)
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[2]{\section*{\uppercase{#1} \small \normalfont #2}}
+
+\newcommand{\NewParttwo}[1]{
+		\noindent \huge \textbf{#1}
+        \normalsize \par}
+
+\newcommand{\PersonalEntry}[1]{\small
+        \hfill
+		\textit{#1}
+		\par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name}{birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{White}{%
+			\parbox{6em}{%
+			\hfill\color{Black}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[5]{
+		\noindent \textbf{#1}
+        \noindent \small \textit{#2}
+        \hfill      % Study
+        \colorbox{White}{%
+			\parbox{12em}{%
+			\hfill\color{Black}#3}} \par  % Duration
+		\noindent \textit{#4} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #5 % Description
+		\normalsize \par}
+
+\newcommand{\Language}[2]{
+		\noindent \textbf{#1}
+        \noindent \small \textit{#2}}
+        
+\newcommand{\Text}[1]{\par
+		\noindent \small #1 
+		\normalsize \par}
+        
+\newcommand{\Textlong}[4]{
+		\noindent \textbf{#1} \par
+        \sepspace
+        \noindent \small #2
+        \par\sepspace      
+		\noindent \small #3
+        \par\sepspace      
+		\noindent \small #4
+        \normalsize \par}
+              
+
+\newcommand{\PaperEntry}[7]{
+		\noindent #1, ``\href{#7}{#2}", \textit{#3} \textbf{#4}, #5 (#6).}
+
+
+\newcommand{\ArxivEntry}[3]{
+		\noindent #1, ``\href{http://arxiv.org/abs/#3}{#2}", \textit{{cond-mat/}#3}.}
+        
+\newcommand{\BookEntry}[4]{
+		\noindent #1, ``\href{#3}{#4}", \textit{#3}.}
+        
+\newcommand{\FundingEntry}[5]{
+        \noindent #1, ``#2", \$#3 (#4, #5).}
+
+\newcommand{\TalkEntry}[4]{
+		\noindent #1, #2, #3 #4}
+
+\newcommand{\ThesisEntry}[5]{
+		\noindent #1 -- #2 #3 ``#4" \textit{#5}}
+
+\newcommand{\CourseEntry}[3]{
+		\noindent \item{#1: \textbf{#2} \\ #3}}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\vspace*{-2em}
+		\includegraphics[width=0.225\textwidth]{profile.jpg}
+\end{wrapfigure}
+
+\MyName{Aleksa Ćuković}
+\MySlogan{Resume (\today)}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+%\NewPart{}{}
+
+\PersonalEntry{+382 67 341 407}
+\PersonalEntry{\href{mailto:aleksacukovic1@gmail.com}{aleksacukovic1@gmail.com}}
+\PersonalEntry{\href{https://github.com/AleksaC}{\faGithub AleksaC}}
+
+\sepspace
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{University of Montenegro}{2016-2019}{B.Sc. Computer Science (GPA: 9.24/10)}
+
+\sepspace
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work Experience}{}
+
+\WorkEntry{Crnogorski Telekom}{}{March 2019 - June 2019}{Software Developement Intern}
+{Worked part-time. Built web applications for automating and improving billing processes
+including dashboard for running billing procedures, as well as web app for processing Excel spreadsheets
+with data for billing telegrams. Used ASP.NET, jQuery and Bootstrap. Worked with SQL Server and Oracle databases.}
+
+
+\sepspace
+
+%%% SKILLS
+%%% ------------------------------------------------------------
+\NewPart{SKILLS}{}
+
+\Language{Programming Languages:}{Python, C\#, JavaScript, Java, C, C++}\\
+\Language{Tools and Frameworks:}{Django, Flask, NumPy, Keras, TensorFlow, Kivy, ASP.NET, bash, git, Makefile, Docker, Heroku, ReactJS, jQuery, Bootstrap, Express.js }
+
+\sepspace
+
+%%% SKILLS
+%%% ------------------------------------------------------------
+\NewPart{Projects}{}
+
+\Language{nnlib}{- simple deep learning library built from scratch for educational purposes using only NumPy}\\
+\Language{gym-snake}{- OpenAI Gym environment for snake game along with reinforcement learning algorithms for solving it - part of OpenAI's Requests for Research 2.0}\\
+\Language{My Personal Website}{- built completely from scratch with Django backend and pure HTML/CSS/JS frontend. It includes blog where I can upload markdown files which get converted to HTML}\\
+\Language{Lights Out}{- Lights Out game built using kivy}\\
+
+\sepspace
+
+%%% PROJECTS
+%%%--------------------------------------------------------------
+\NewPart{Honors and Awards}{}
+
+3\textsuperscript{rd} place at FinTech Hackathon "Mobilno plaćanje – plaćanje budućnosti" - Mtel Digitalna Fabrika \hfill {2018}\\
+2\textsuperscript{nd} place at National Biology Competition \hfill {2016}\\
+1\textsuperscript{st} place at National Biology Competition \hfill {2015}
+
+\end{document}
+

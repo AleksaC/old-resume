@@ -1,12 +1,13 @@
 dist: xenial
 language: python
-before_script:
+install:
 - pip install lxml
 - sudo apt-get install texlive texlive-latex-extra texlive-fonts-extra
 - sudo apt-get install ghostscript
-script:
+before_script:
 - sudo chmod 777 /etc/ImageMagick-6/policy.xml
 - python change_policy.py
+script:
 - make
 - make clean
 - ./push.sh

@@ -1,6 +1,6 @@
 # Resume
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/AleksaC/resume/blob/master/LICENSE)
-[![Build Status](https://travis-ci.com/AleksaC/resume.svg?branch=master)](https://travis-ci.com/AleksaC/resume)
+[![Build Status](https://travis-ci.org/AleksaC/resume.svg?branch=master)](https://travis-ci.org/AleksaC/resume)
 
 This repository contains the latest version of my resume. It's a single-page
 one-column resume made in LaTeX.
@@ -11,7 +11,7 @@ The layout is based on a template I found on Overleaf, but I don't remember
 which one was it and I was unable to find it again, therefore I cannot
 reference it.
 
-## Generating pdf and png previews 🗎
+## Generating pdf and png previews 📄
 I used `pdflatex` to generate pdf version of the resume. To install it along
 with some extras run the following command:
 
@@ -28,15 +28,13 @@ likely need to modify `/etc/ImageMagick-6/policy.xml` to allow it to work with
 pdf files. I've created `change_policy.py` to take care of that. To use it you
 first need to install `lxml`. While your system may already have it installed I
 recommend running `python -m pip install lxml` to make sure that it's installed
-for the version of python you're using. To run the script you will also likely 
+for the version of python you're using. To run the script you will also likely
 have to either change the permissions for `policy.xml` by
-running `sudo chmod 777 /etc/ImageMagick-6/policy.xml` or run the script as 
-superuser. Note that running `sudo python change_policy.py` may not run a 
-the expected version of python interpreter so if the script throws an error make
-sure you're running it with the right version of the interpreter. Even after
-changing the policy `convert` may still fail. In my case the problem was that
-ghostscript wasn't installed, but that's easily fixed by running
-`sudo apt-get install ghostscript`.
+running `sudo chmod a+w /etc/ImageMagick-6/policy.xml` or run the script as
+superuser. Note that running `sudo python change_policy.py` may not run a
+the expected version of python interpreter. Even after changing the policy `convert`
+may still fail. In my case the problem was that ghostscript wasn't installed,
+but that's easily fixed by running `sudo apt-get install ghostscript`.
 
 **Note:** Scripts in this repo were created and tested on Linux. You probably
 cannot use them on Windows, but they'll likely work on MacOS with slight
@@ -52,7 +50,7 @@ have to worry if the previews are up to date with the contents of the tex file.
 
 To push to GitHub from Travis you need to obtain a personal access token by
 going to Github *Settings > Developer settings > Personal access tokens* where
-you can generate a new token. After copying the token go to the settings of 
+you can generate a new token. After copying the token go to the settings of
 your repo on Travis-CI (under *More options*) and add `GH_TOKEN` environment
 variable with the value being the token you just copied.
 

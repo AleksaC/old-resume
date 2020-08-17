@@ -1,0 +1,46 @@
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "61:e9:35:9a:95:c1:cb:0a:a5:7f:96:e3:17:78:6c:a4"
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install texlive texlive-latex-extra texlive-fonts-extra ghostscript
+            pip install lxml
+      - run:
+          name: Change ImageMagick policy
+          command: |
+            sudo chmod o+w /etc/ImageMagick-6/policy.xml
+            python change_policy.py
+      - run:
+          name: Compile latex to pdf and generate png preview and push back changes
+          command: |
+            if git diff --name-only $BASE_REV..$CURR_REV | grep -E "profile.*|resume.tex" &> /dev/null;
+            then
+              pdflatex resume.tex
+              convert -density 250 -flatten resume.pdf[0] -quality 100 resume.png
+              if ! git diff-index --quiet HEAD --;
+              then
+                git config --global user.name "CircleCI"
+                git remote set-url origin $CIRCLE_REPOSITORY_URL &> /dev/null
+                git add -u
+                git commit -m "Update pdf and png preview ${CIRCLE_BUILD_URL} [ci skip]"
+                git pull --rebase
+                git push origin HEAD:${CIRCLE_BRANCH}
+              fi
+            fi
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build

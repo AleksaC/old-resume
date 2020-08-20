@@ -49,7 +49,7 @@
 \newcommand{\MyName}[1]{ % Name
 		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1
 		\par \normalsize \normalfont}
-		
+
 \newcommand{\MySlogan}[1]{ % Slogan}{optional)
 		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
 		\par \normalsize \normalfont}
@@ -69,8 +69,8 @@
 		\noindent\hangindent=2em\hangafter=0 % Indentation
 		\parbox{\spacebox}{        % Box to align text
 		\textit{#1}}			   % Entry name}{birth, address, etc.)
-		\hspace{1.5em} #2 \par}    % Entry value	
-		
+		\hspace{1.5em} #2 \par}    % Entry value
+
 \newcommand{\EducationEntry}[4]{
 		\noindent \textbf{#1} \hfill      % Study
 		\colorbox{White}{%
@@ -94,21 +94,21 @@
 \newcommand{\Language}[2]{
 		\noindent \textbf{#1}
         \noindent \small \textit{#2}}
-        
+
 \newcommand{\Text}[1]{\par
-		\noindent \small #1 
+		\noindent \small #1
 		\normalsize \par}
-        
+
 \newcommand{\Textlong}[4]{
 		\noindent \textbf{#1} \par
         \sepspace
         \noindent \small #2
-        \par\sepspace      
+        \par\sepspace
 		\noindent \small #3
-        \par\sepspace      
+        \par\sepspace
 		\noindent \small #4
         \normalsize \par}
-              
+
 
 \newcommand{\PaperEntry}[7]{
 		\noindent #1, ``\href{#7}{#2}", \textit{#3} \textbf{#4}, #5 (#6).}
@@ -116,10 +116,10 @@
 
 \newcommand{\ArxivEntry}[3]{
 		\noindent #1, ``\href{http://arxiv.org/abs/#3}{#2}", \textit{{cond-mat/}#3}.}
-        
+
 \newcommand{\BookEntry}[4]{
 		\noindent #1, ``\href{#3}{#4}", \textit{#3}.}
-        
+
 \newcommand{\FundingEntry}[5]{
         \noindent #1, ``#2", \$#3 (#4, #5).}
 
@@ -168,6 +168,9 @@
 %%% ------------------------------------------------------------
 \NewPart{Work Experience}{}
 
+\WorkEntry{netboxify}{}{September 2019 - Present}{Software Engineer}
+{}
+
 \WorkEntry{Crnogorski Telekom}{}{March 2019 - June 2019}{Software Developement Intern}
 {Worked part-time. Built web applications for automating and improving billing processes
 including dashboard for running billing procedures, as well as web app for processing Excel spreadsheets
@@ -180,8 +183,8 @@ with data for billing telegrams. Used ASP.NET, jQuery and Bootstrap. Worked with
 %%% ------------------------------------------------------------
 \NewPart{SKILLS}{}
 
-\Language{Programming Languages:}{Python, C\#, JavaScript, Java, C, C++}\\
-\Language{Tools and Frameworks:}{Django, Flask, NumPy, Keras, TensorFlow, Kivy, ASP.NET, bash, git, Makefile, Docker, Heroku, ReactJS, jQuery, Bootstrap, Express.js }
+\Language{Programming Languages:}{Python, JavaScript, C\#, Java, C, C++}\\
+\Language{Tools and Frameworks:}{Django, Flask, NumPy, Keras, PyTorch, bash, git, Docker, ReactJS}
 
 \sepspace
 
@@ -191,7 +194,6 @@ with data for billing telegrams. Used ASP.NET, jQuery and Bootstrap. Worked with
 
 \Language{nnlib}{- simple deep learning library built from scratch for educational purposes using only NumPy}\\
 \Language{gym-snake}{- OpenAI Gym environment for snake game along with reinforcement learning algorithms for solving it - part of OpenAI's Requests for Research 2.0}\\
-\Language{My Personal Website}{- built completely from scratch with Django backend and pure HTML/CSS/JS frontend. It includes blog where I can upload markdown files which get converted to HTML}\\
 \Language{Lights Out}{- Lights Out game built using kivy}\\
 
 \sepspace
@@ -205,4 +207,3 @@ with data for billing telegrams. Used ASP.NET, jQuery and Bootstrap. Worked with
 1\textsuperscript{st} place at National Biology Competition \hfill {2015}
 
 \end{document}
-

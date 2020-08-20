@@ -40,7 +40,7 @@ but that's easily fixed by running `sudo apt-get install ghostscript`.
 cannot use them on Windows, but they'll likely work on MacOS with slight
 modifications.
 
-## Using Travis-CI 👷 to automatically update previews
+## Using ~~Travis-CI 👷~~ CircleCI to automatically update previews
 Since updates to this repository are mostly small updates to resume.tex, it is
 often easier to just make them using the GitHub editor, without the overhead of
 making modifications locally and then pushing them to GitHub. For that reason
@@ -53,6 +53,12 @@ going to Github *Settings > Developer settings > Personal access tokens* where
 you can generate a new token. After copying the token go to the settings of
 your repo on Travis-CI (under *More options*) and add `GH_TOKEN` environment
 variable with the value being the token you just copied.
+
+Since making this repo I transitioned to using CircleCI for most of my personal
+projects. However that is not the reason why I made the switch for this project.
+The main reason why I replaced Travis with Circle in this case is because Travis,
+unlike Circle, doesn't support (at least not as easily) deploy keys which I
+prefer to personal access tokens.
 
 ## Preview
 

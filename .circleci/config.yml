@@ -5,6 +5,10 @@ jobs:
     machine:
       image: ubuntu-1604:201903-01
 
+    environment:
+      BASE_REV: << pipeline.git.base_revision >>
+      CURR_REV: << pipeline.git.revision >>
+
     steps:
       - add_ssh_keys:
           fingerprints:

@@ -5,7 +5,7 @@ import time
 
 
 file_path = "resume.tex"
-command = "pdflatex resume.tex"
+command = "pdflatex -interaction=nonstopmode resume.tex"
 
 
 if __name__ == '__main__':

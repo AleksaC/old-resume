@@ -29,11 +29,12 @@ jobs:
       - run:
           name: Compile latex to pdf and generate png preview and push back changes
           command: |
-            if git diff --name-only $BASE_REV..$CURR_REV | grep -E "profile.*|resume.tex" &> /dev/null;
+            if git diff --name-only $BASE_REV..$CURR_REV | grep -E "profile.*|resume.tex" &> /dev/null
             then
               pdflatex resume.tex
               convert -density 250 -flatten resume.pdf[0] -quality 100 resume.png
-              if ! git diff-index --quiet HEAD --; then
+              if ! git diff-index --quiet HEAD --
+              then
                 git config --global user.name "CircleCI"
                 git remote set-url origin $CIRCLE_REPOSITORY_URL &> /dev/null
                 git add -u

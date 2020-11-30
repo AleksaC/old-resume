@@ -41,6 +41,11 @@ jobs:
                 git pull --rebase
                 git push origin HEAD:${CIRCLE_BRANCH}
 
+                # New ssh key needs to be added so that it works for the other repo
+                rm -rf ~/.ssh/config
+                ssh-add -D
+                ssh-add ~/.ssh/id_rsa_d9e46aa5777965a7d7508d1418a64891
+
                 git clone git@github.com:AleksaC/personal-website.git
                 cp resume.pdf personal-website/static
                 cd personal-website

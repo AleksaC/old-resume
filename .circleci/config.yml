@@ -13,6 +13,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "49:f4:fc:ad:62:47:a9:97:45:0f:ca:e3:dd:08:cd:93"
+            - "d9:e4:6a:a5:77:79:65:a7:d7:50:8d:14:18:a6:48:91"
       - checkout
       - run:
           name: Install dependencies
@@ -32,14 +33,21 @@ jobs:
             then
               pdflatex resume.tex
               convert -density 250 -flatten resume.pdf[0] -quality 100 resume.png
-              if ! git diff-index --quiet HEAD --;
-              then
+              if ! git diff-index --quiet HEAD --; then
                 git config --global user.name "CircleCI"
                 git remote set-url origin $CIRCLE_REPOSITORY_URL &> /dev/null
                 git add -u
                 git commit -m "Update pdf and png preview ${CIRCLE_BUILD_URL} [ci skip]"
                 git pull --rebase
                 git push origin HEAD:${CIRCLE_BRANCH}
+
+                git clone git@github.com:AleksaC/personal-website.git
+                cp resume.pdf personal-website/static
+                cd personal-website
+                git add -u
+                git commit -m "Update resume"
+                git pull --rebase
+                git push origin HEAD
               fi
             fi
 
